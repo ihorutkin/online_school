@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+{% endblock %}
+<div class="dashboard_container">
+  {% block header %}
+    <header class="header">
+      <h3 class="logo"><a href=""><span>Try</span>School</a></h3>
+      <nav class="header_nav">
+          <a class="header_link" href="#">Home</a>
+          <a class="header_link" href="#">calender</a>
+          <a class="header_link" href="#">trail call</a>
+      </nav>
+      <div class="logged_block">
+          <a href="#">username</a>
+          <i class="fa-solid fa-user"></i>
+      </div>
+    </header>
+  {% endblock %}
+  {% block content %}
+    <section class="dashboard_block">
+        <aside class="aside_dashboard">
+            <nav class="aside_dashboard_nav">
+                <a class="dashboard_nav_link" href="">All students</a>
+                <a class="dashboard_nav_link" href="">All groups</a>
+                <a class="dashboard_nav_link" href="">All lessons</a>
+            </nav>
+        </aside>
+        <article class="lesson_list">
+          {% for lesson in lesson_list %}
+            <a href="#" class="lesson_item">
+              <div>
+                <p class="lesson_topic">
+                  {{ lesson.topic }} |
+                  <span>{{ lesson.group.level }} {{ lesson.group.name }}</span>
+                </p>
+                <p>{{ lesson.teacher.first_name }} {{ lesson.teacher.last_name }}</p>
+              </div>
+              <p>{{ lesson.start_time }}</p>
+            </a>
+          {% endfor %}
+        </article>
+        <article class="add_lesson_group">
+          <div class="add_btn add_lesson">
+            <p>Add new lesson</p>
+            <a href="#">Add lesson</a>
+          </div>
+          <div class="add_btn add_lesson">
+            <p>Add new group</p>
+            <a href="#">Add group</a>
+          </div>
+        </article>
+    </section>
+  {% endblock %}
+  {% block footer %}
+    <footer class="footer">
+        <p>Created by Ihor Utkin</p>
+    </footer>
+  {% endblock %}
+</div>

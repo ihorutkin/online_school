@@ -1,10 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock %}
+{% block header %}
+  <header class="header">
+        <h3 class="logo"><a href=""><span>Try</span>School</a></h3>
+        <nav class="header_nav">
+            <a class="header_link" href="#">Home</a>
+            <a class="header_link" href="#">About</a>
+            <a class="header_link" href="#">Blog</a>
+            <a class="header_link" href="#">Reviews</a>
+        </nav>
+        <div class="login_btn_block">
+            <a class="login_btn log_in" href="#">Log in</a>
+            <a class="login_btn sign_in" href="#">Sign in</a>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+  <section class="container_intro">
+        <div class="intro">
+            <article class="content_intro">
+                <h2 class="title_intro">Lorem ipsum dolor sit amet.</h2>
+                <p class="text_intro">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Exercitationem, voluptatibus sit et corporis
+                    dolore ducimus officia repellendus ex est quo omnis?
+                    Suscipit nulla ea iusto dicta? Sapiente corporis
+                    deserunt aspernatur ea unde distinctio officia tempore
+                    mollitia! Magni consectetur temporibus laborum?</p>
+            </article>
+            <article class="img_intro"></article>
+        </div>
+    </section>
+    <section class="container_about">
+        <p class="about_title">About section</p>
+        <div class="about_tiems_block">
+            <article class="about_item">
+                <i class="about_icon fa-solid fa-calendar-days"></i>
+                <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
+                <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+            <article class="about_item">
+                <i class="about_icon fa-solid fa-calendar-days"></i>
+                <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
+                <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+            <article class="about_item">
+                <i class="about_icon fa-solid fa-calendar-days"></i>
+                <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
+                <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+            <article class="about_item">
+                <i class="about_icon fa-solid fa-calendar-days"></i>
+                <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
+                <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+            <article class="about_item">
+                <i class="about_icon fa-solid fa-calendar-days"></i>
+                <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
+                <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+            <article class="about_item">
+                <i class="about_icon fa-solid fa-calendar-days"></i>
+                <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
+                <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+        </div>
+    </section>
+{% endblock %}
+{% block footer %}
+  <footer class="footer">
+    <p>Created by Ihor Utkin</p>
+  </footer>
+{% endblock %}
