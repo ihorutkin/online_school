@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/login/login.css" %}">
+{% endblock %}
+{% block content %}
+  <section class="login_container">
+      <article class="login_block">
+          <form class="login_form" method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+              <p class="log_in_title">Log in</p>
+              <input
+                  class="input_field"
+                  type="text"
+                  name="{{ form.username.name }}"
+                  id="{{ form.username.id_for_label }}"
+                  placeholder="username"
+              >
+              <input
+                  class="input_field"
+                  type="password"
+                  name="{{ form.password.name }}"
+                  id="{{ form.password.id_for_label }}"
+                  placeholder="password"
+              >
+              <input class="login_submit_btn" type="submit" value="Submit">
+          </form>
+          <div class="login_content">
+              <h2>Welcome back</h2>
+              <p>Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Et accusantium hic
+                  iste quia corporis libero.</p>
+              <a class="sign_up_btn" href="{% url "english:create_teacher" %}">Sign up</a>
+          </div>
+      </article>
+  </section>
+{% endblock %}

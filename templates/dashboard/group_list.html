@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/group/group_list.css" %}">
+{% endblock %}
+{% block content %}
+  <section class="group_list_container">
+    <table class="table table-striped table-hover table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Teacher</th>
+        <th>Progress</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for group in groups_list %}
+        <tr class="group_item">
+          <td><a style="text-decoration: none" href="{% url "english:group-detail" group.id %}">{{ group.name }}</a></td>
+          <td>{{ group.level }}</td>
+          <td>{{ group.teacher.full_name }}</td>
+          <td>{{ group.progress }}%</td>
+          <td><a class="btn btn-primary" href="#">Update</a></td>
+          <td><a class="btn btn-danger" href="#">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% include "includes/pagination.html" %}
+  </section>
+{% endblock %}

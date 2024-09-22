@@ -6,16 +6,9 @@
 {% block content %}
   <section class="dashboard_block">
         <article class="lesson_list">
-          {% for lesson in lesson_list %}
+          {% for student in student_list %}
             <a href="{% url "english:group-detail" lesson.id %}" class="lesson_item">
-              <div>
-                <p class="lesson_topic">
-                  {{ lesson.topic }} |
-                  <span>{{ lesson.group.level }} {{ lesson.group.name }}</span>
-                </p>
-                <p>{{ lesson.teacher.first_name }} {{ lesson.teacher.last_name }}</p>
-              </div>
-              <p>{{ lesson.start_time }}</p>
+              {{ student.name }}
             </a>
           {% endfor %}
           {% include "includes/pagination.html" %}

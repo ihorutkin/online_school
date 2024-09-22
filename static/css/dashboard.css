@@ -1,99 +1,17 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat";
-}
-
-body{
-    display: flex;
-    flex-direction: column;
-}
-
-.dashboard_container{
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    height: 100vh;
-}
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 1rem;
-    background-color: #001F24;
-}
-
-.logo a{
-    color: #F6F6F6;
-    text-decoration: none;
-}
-
-.logo a span{
-    color: #E9D700;
-}
-
-.header_link{
-    padding: 10px 20px;
-    color: #F6F6F6;
-    text-transform: lowercase;
-    text-decoration: none;
-    transition: all .3s linear;
-}
-
-.header_link:hover{
-    color: #E9D700;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    transition: all .3s linear;
-}
-
-.logged_block{
-    display: flex;
-    color: #F6F6F6;
-    font-size: 16px;
-    gap: 1rem;
-    align-items: center;
-}
-
-.logged_block a{
-    text-decoration: none;
-    color: #F6F6F6;
-}
-
-.fa-user{
-    font-size: 24px;
-}
-
 /* dashboard */
 
 .dashboard_block{
     display: flex;
-}
-
-.aside_dashboard{
-    flex-basis: 15%;
-    border-right: 2px #001F24 solid;
-}
-
-.aside_dashboard_nav{
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.dashboard_nav_link{
-    text-decoration: none;
-    color: #001F24;
-    font-weight: 500;
+    width: 100%;
 }
 
 .lesson_list{
     display: flex;
     flex-direction: column;
-    flex-basis: 50%;
+    flex-basis: 75%;
     padding: 1rem;
     gap: 1rem;
+    /*margin-top: 1rem;*/
 }
 
 .lesson_item{
@@ -101,15 +19,15 @@ body{
     justify-content: space-between;
     text-decoration: none;
     width: 100%;
-    background-color: #d2f8d2;
-    border-radius: 10px;
+    background-color: #F6F6F6;
+    /*border-radius: 10px;*/
     padding: 1rem 10px;
     cursor: pointer;
     color: black;
 }
 
 .lesson_item:hover{
-    background-color: #bcf5bc;
+    /*background-color: #bcf5bc;*/
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -118,11 +36,11 @@ body{
 }
 
 .add_lesson_group{
-    margin: 1rem 0;
-    margin-left: 4rem;
+    margin: 1rem 0 0 4rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-top: 3rem;
 }
 
 .add_btn{
@@ -148,6 +66,7 @@ body{
     padding: 1rem 2rem;
     text-decoration: none;
     height: 100px;
+    line-height: 50px;
     color: #001F24;
     transition: all .3s linear;
     cursor: pointer;
@@ -156,45 +75,10 @@ body{
 }
 
 .add_btn a:hover{
-    background-color: #001F24;
-    color: #F6F6F6;
+    background-color: #E9D700;
+    color: #001F24;
     transition: all .3s linear;
 }
 
 
 /* footer */
-
-.footer{
-    text-align: center;
-    padding: 2rem 1rem;
-    background-color: #001F24;
-}
-
-.footer p{
-    color: #F6F6F6;
-}
-
-
-
-
-
-
-
-
-@media (max-width: 700px){
-    .header{
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 400px){
-    .header_link{
-        padding: 10px 0;
-    }
-    .header_nav{
-        display: flex;
-        gap: 10px;
-    }
-}
