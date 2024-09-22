@@ -1,0 +1,15 @@
+.student_information{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.teacher_img{
+    width: 200px;
+    height: 200px;
+    background-color: #001F24;
+    opacity: .5;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}

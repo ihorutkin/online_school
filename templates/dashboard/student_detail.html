@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/students/student_detail.css" %}">
+{% endblock %}
+{% block content %}
+  <div class="student_information">
+    <h2>{{ student.name }} {{ student.surname }}</h2>
+    <div class="teacher_img"></div>
+    <p><strong>Name: </strong>{{ student.name }}</p>
+    <p><strong>Surname: </strong>{{ student.surname }}</p>
+    <p><strong>Email: </strong>{{ student.email }}</p>
+    <strong>Group information:</strong>
+    <table class="table table-striped table-hover table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Teacher</th>
+        <th>Progress</th>
+      </tr>
+      <tr>
+        <td>{{ student.group.name }}</td>
+        <td>{{ student.group.level }}</td>
+        <td>{{ student.group.group_teachers }}</td>
+        <td>{{ student.group.progress }}</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}

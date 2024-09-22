@@ -6,7 +6,8 @@ from english.views import (
     GroupCreateView,
     GroupDetailView,
     StudentsListView,
-    GroupListView
+    GroupListView,
+    StudentDetailView
 )
 
 
@@ -17,6 +18,7 @@ urlpatterns = [
     path("group/<int:pk>/", GroupDetailView.as_view(), name="group-detail"),
     path("group/create/", GroupCreateView.as_view(), name="group-create"),
     path("students/", StudentsListView.as_view(), name="students-list"),
+    path("students/<int:pk>", StudentDetailView.as_view(), name="student-detail"),
     path("signup/", CreateTeacherView.as_view(), name="create_teacher")
 ]
 

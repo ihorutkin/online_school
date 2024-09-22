@@ -46,3 +46,9 @@ class GroupCreateView(LoginRequiredMixin, generic.CreateView):
 class StudentsListView(LoginRequiredMixin, generic.ListView):
     model = Student
     template_name = "dashboard/students_list.html"
+    paginate_by = 8
+
+
+class StudentDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Student
+    template_name = "dashboard/student_detail.html"
