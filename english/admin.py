@@ -24,6 +24,7 @@ class GroupsAdmin(admin.ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
+    list_display = ("name", "surname", "email", "group",)
     fieldsets = (
         ("full name", {
            'fields': ("name", "surname",)

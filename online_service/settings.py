@@ -130,6 +130,8 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 LOGIN_REDIRECT_URL = "/dashboard"
 
+LOGOUT_REDIRECT_URL = "/accounts/login"
+
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Default primary key field type

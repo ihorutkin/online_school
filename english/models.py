@@ -1,6 +1,9 @@
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 
 class Groups(models.Model):
@@ -10,8 +13,12 @@ class Groups(models.Model):
         "Teacher",
         related_name="teacher_groups"
     )
-    progress = models.DecimalField(max_digits=100, decimal_places=0)
-
+    progress = models.DecimalField(
+        max_digits=100,
+        decimal_places=0,
+        validators=[MinValueValidator(0), MaxValueValidator(100)]
+    )
+    starting_time = models.DateField()
     def __str__(self):
         return f"{self.name} {self.level} {self.progress}%"
 
@@ -42,6 +49,22 @@ class Lesson(models.Model):
     def __str__(self):
         return f"{self.topic} {self.group} {self.teacher} {self.created_time}"
 
+    def clean(self):
+        super().clean()
+
+        if self.start_time > self.end_time:
+            raise ValidationError('The time difference between start_time and end_time cannot exceed 24 hours.')
+
+        if (self.end_time - self.start_time).total_seconds() > 24 * 3600:
+            raise ValidationError('The time difference between start_time and end_time cannot exceed 24 hours.')
+
+        if self.start_time < timezone.now():
+            raise ValidationError('Start time cannot be in the past.')
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(Lesson, self).save(*args, **kwargs)
+
 
 class Teacher(AbstractUser):
     full_name = models.CharField(max_length=255)
@@ -54,3 +77,6 @@ class Teacher(AbstractUser):
         related_name="lesson_teachers"
     )
     groups = models.ManyToManyField(Groups, related_name="group_teachers")
+
+    class Meta:
+        verbose_name = "Teacher"

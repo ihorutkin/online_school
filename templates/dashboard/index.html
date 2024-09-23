@@ -19,8 +19,7 @@
             <a class="header_link" href="#">Reviews</a>
         </nav>
         <div class="login_btn_block">
-            <a class="login_btn log_in" href="{% url 'login'%}">Log in</a>
-            <a class="login_btn sign_in" href="{% url "english:create_teacher" %}">Sign in</a>
+            <a class="login_btn sign_in" href="{% url 'login'%}">Log in</a>
         </div>
     </header>
     <section class="container_intro">
@@ -75,6 +74,44 @@
                 <h3 class="about_item_title">Lorem ipsum dolor sit.</h3>
                 <p class="about_item_text">Lorem ipsum dolor sit, amet consectetur 
                     adipisicing elit. Dolorum, veritatis?</p>
+            </article>
+        </div>
+    </section>
+    <section class="container_blog">
+        <h2 class="blog_title">Blog</h2>
+        <div class="blog_items_block">
+            <article class="blog_item">
+                <h3 class="blog_item_title">Blog Post Title 1</h3>
+                <p class="blog_item_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, eveniet?</p>
+                <a class="read_more" href="#">Read more</a>
+            </article>
+            <article class="blog_item">
+                <h3 class="blog_item_title">Blog Post Title 2</h3>
+                <p class="blog_item_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, eveniet?</p>
+                <a class="read_more" href="#">Read more</a>
+            </article>
+            <article class="blog_item">
+                <h3 class="blog_item_title">Blog Post Title 3</h3>
+                <p class="blog_item_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, eveniet?</p>
+                <a class="read_more" href="#">Read more</a>
+            </article>
+        </div>
+    </section>
+
+    <section class="container_reviews">
+        <h2 class="reviews_title">Reviews</h2>
+        <div class="reviews_items_block">
+            <article class="review_item">
+                <p class="review_text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, eveniet?"</p>
+                <p class="review_author">- John Doe</p>
+            </article>
+            <article class="review_item">
+                <p class="review_text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, eveniet?"</p>
+                <p class="review_author">- Jane Smith</p>
+            </article>
+            <article class="review_item">
+                <p class="review_text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, eveniet?"</p>
+                <p class="review_author">- Alice Johnson</p>
             </article>
         </div>
     </section>

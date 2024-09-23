@@ -1,15 +1,18 @@
 .group_list_container{
+    display: flex;
     width: 100%;
 }
 
-.group_item{
-
+.groups_container{
+    flex-basis: 80%;
 }
 
-.group_item:hover{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.group_create_button{
+    flex-basis: 20%;
+    padding: 1rem;
 }
 
-.btn{
-    margin: 0;
+.group_create_button .btn-primary{
+    width: 300px;
+    padding: 1rem 0;
 }

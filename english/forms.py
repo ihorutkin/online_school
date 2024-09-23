@@ -1,11 +1,11 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.core.exceptions import ValidationError
 
 from english.models import Teacher, Groups
 
 
-class DriverCreationForm(UserCreationForm):
+class TeacherCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Teacher
         fields = UserCreationForm.Meta.fields + (
@@ -15,13 +15,40 @@ class DriverCreationForm(UserCreationForm):
         )
 
 
-class GroupCreateForm(forms.ModelForm):
-    groups = forms.ModelMultipleChoiceField(
-        queryset=get_user_model().objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False
+class StudentSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "first name"
+            }
+        )
     )
 
-    class Meta:
-        model = Groups
-        fields = "__all__"
+
+class LessonSearchForm(forms.Form):
+    topic = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "lesson topic"
+            }
+        )
+    )
+
+
+class GroupSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "group name"
+            }
+        )
+    )

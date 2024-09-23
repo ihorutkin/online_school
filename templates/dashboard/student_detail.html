@@ -6,7 +6,13 @@
 {% block content %}
   <div class="student_information">
     <h2>{{ student.name }} {{ student.surname }}</h2>
-    <div class="teacher_img"></div>
+    <img
+        class="teacher_img"
+        src="../../static/images/student.jpg"
+        alt="Girl in a jacket"
+        width="500"
+        height="600"
+    >
     <p><strong>Name: </strong>{{ student.name }}</p>
     <p><strong>Surname: </strong>{{ student.surname }}</p>
     <p><strong>Email: </strong>{{ student.email }}</p>
@@ -21,7 +27,7 @@
       <tr>
         <td>{{ student.group.name }}</td>
         <td>{{ student.group.level }}</td>
-        <td>{{ student.group.group_teachers }}</td>
+        <td>{{ student.group.teacher.first.first_name }} {{ student.group.teacher.first.last_name }}</td>
         <td>{{ student.group.progress }}</td>
       </tr>
     </table>

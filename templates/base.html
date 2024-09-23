@@ -25,11 +25,15 @@
               <a class="header_link" href="#">trail call</a>
           </nav>
           <div class="logged_block">
-              <a href="#">{{ request.user.username }}</a>
+              <a class="create_new_admin" href="{% url 'english:create-teacher' %}">Add</a>
+              <a href="{% url "english:teacher_admin" request.user.id %}">{{ request.user.username }}</a>
               <i class="fa-solid fa-user"></i>
-              <a href="{% url "logout" %}">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </a>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button style="background: transparent; color: #f6f6f6; border: none" type="submit">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+              </form>
           </div>
         </header>
       {% endblock %}

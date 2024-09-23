@@ -22,9 +22,9 @@
 }
 
 .group_detail_teacher{
-    flex-basis: 40%;
+    flex-basis: 30%;
 }
 
 .group_detail_students{
-    flex-basis: 60%;
+    flex-basis: 70%;
 }
