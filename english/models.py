@@ -36,7 +36,11 @@ class Student(models.Model):
 
 class Lesson(models.Model):
     topic = models.CharField(max_length=255)
-    group = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name="lessons")
+    group = models.ForeignKey(
+        Groups,
+        on_delete=models.CASCADE,
+        related_name="lessons"
+    )
     teacher = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -53,10 +57,14 @@ class Lesson(models.Model):
         super().clean()
 
         if self.start_time > self.end_time:
-            raise ValidationError('The time difference between start_time and end_time cannot exceed 24 hours.')
+            raise ValidationError('The time difference between '
+                                  'start_time and end_time '
+                                  'cannot exceed 24 hours.')
 
         if (self.end_time - self.start_time).total_seconds() > 24 * 3600:
-            raise ValidationError('The time difference between start_time and end_time cannot exceed 24 hours.')
+            raise ValidationError('The time difference between '
+                                  'start_time and end_time '
+                                  'cannot exceed 24 hours.')
 
         if self.start_time < timezone.now():
             raise ValidationError('Start time cannot be in the past.')
@@ -67,16 +75,22 @@ class Lesson(models.Model):
 
 
 class Teacher(AbstractUser):
-    full_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(max_length=255)
     password = models.CharField(max_length=255)
     lesson = models.ForeignKey(
         Lesson,
         on_delete=models.CASCADE,
-        related_name="lesson_teachers"
+        related_name="lesson_teachers",
+        null=True,
+        blank=True
     )
-    groups = models.ManyToManyField(Groups, related_name="group_teachers")
+    groups = models.ManyToManyField(
+        Groups,
+        related_name="group_teachers"
+    )
 
     class Meta:
         verbose_name = "Teacher"

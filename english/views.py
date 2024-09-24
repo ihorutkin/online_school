@@ -94,7 +94,6 @@ def dashboard_view(request: HttpRequest) -> HttpResponse:
         ),
         height=500,
         width=900,
-        # margin=dict(l=50, r=50, t=80, b=50),
     )
 
 
@@ -106,7 +105,11 @@ def dashboard_view(request: HttpRequest) -> HttpResponse:
         "amount_lessons": amount_lessons,
         "plot_div": plot_div,
     }
-    return render(request, "dashboard/dashboard.html", context=context)
+    return render(
+        request,
+        "dashboard/dashboard.html",
+        context=context
+    )
 
 
 class TeacherDetailView(LoginRequiredMixin, generic.DetailView):
@@ -140,7 +143,9 @@ class GroupListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         form = GroupSearchForm(self.request.GET)
         if form.is_valid():
-            return self.queryset.filter(name__icontains=form.cleaned_data["name"])
+            return self.queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
         return self.queryset
 
 
@@ -192,7 +197,9 @@ class StudentsListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         form = StudentSearchForm(self.request.GET)
         if form.is_valid():
-            return self.queryset.filter(name__icontains=form.cleaned_data["name"])
+            return self.queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
         return self.queryset
 
 
@@ -241,7 +248,9 @@ class LessonListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         form = LessonSearchForm(self.request.GET)
         if form.is_valid():
-            return self.queryset.filter(topic__icontains=form.cleaned_data["topic"])
+            return self.queryset.filter(
+                topic__icontains=form.cleaned_data["topic"]
+            )
         return self.queryset
 
 

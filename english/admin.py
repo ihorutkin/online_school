@@ -7,7 +7,7 @@ from english.models import Teacher, Lesson, Groups, Student
 
 @admin.register(Teacher)
 class TeacherAdmin(UserAdmin):
-    ordering = ("full_name",)
+    ordering = ("last_name",)
 
 
 @admin.register(Lesson)
