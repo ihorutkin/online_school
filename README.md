@@ -4,7 +4,7 @@ Django project for managing group and lesson in online school
 
 ## Check it out
 
-[Online school project deployed to render](https://google.com)
+[Online school project deployed to render](https://online-english-school.onrender.com)
 
 ## Admin credentials
 
