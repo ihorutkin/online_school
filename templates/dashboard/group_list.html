@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/group/group_list.css" %}">
+{% endblock %}
+{% block content %}
+  <section class="group_list_container">
+    <div class="groups_container">
+      <table class="table table-striped table-hover table-bordered">
+        <tr>
+          <th>Name</th>
+          <th>Level</th>
+          <th>Teacher</th>
+          <th>Progress</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        {% for group in groups_list %}
+          <tr class="group_item">
+            <td><a style="text-decoration: none" href="{% url "english:group-detail" group.id %}">{{ group.name }}</a></td>
+            <td>{{ group.level }}</td>
+            <td>{{ group.teacher.first.first_name }} {{ group.teacher.first.last_name }}</td>
+            <td>{{ group.progress }}%</td>
+            <td><a class="btn btn-primary" href="{% url "english:group-update" group.id %}">Update</a></td>
+            <td><a class="btn btn-danger" href="{% url "english:group-delete" group.id %}">Delete</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% include "includes/pagination.html" %}
+    </div>
+    <div class="group_create_button">
+      <form action="" method="get" class="form-inline">
+        {{ search_form|crispy }}
+        <input class="btn btn-success" type="submit" value="Search">
+      </form>
+      <a class="btn btn-primary" href="{% url "english:group-create" %}">Create group</a>
+    </div>
+  </section>
+{% endblock %}

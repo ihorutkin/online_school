@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100" style="background-color: #f6f6f6;">
+    <div class="card p-4 shadow-lg" style="background-color: #f6f6f6; color: #162F33;;">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="p-4">
+                    <h2 class="mb-4">Register</h2>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary w-100" style="background-color: #001F24; border: none;">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

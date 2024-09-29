@@ -1,0 +1,30 @@
+.group_detail_section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.group_detail_teacher{
+    padding: 1rem;
+}
+
+.teacher_img{
+    width: 200px;
+    height: 200px;
+    background-color: #001F24;
+    opacity: .5;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.group_detail_section > div{
+    display: flex;
+}
+
+.group_detail_teacher{
+    flex-basis: 30%;
+}
+
+.group_detail_students{
+    flex-basis: 70%;
+}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+{% endblock %}
+{% block content %}
+  <section class="dashboard_block">
+    <div class="statistic_block">
+      <article class="statistic_block_item item_1">
+        <h4>Students</h4>
+        <p>{{ amount_students }}</p>
+      </article>
+      <article class="statistic_block_item item_2">
+        <h4>Groups</h4>
+        <p>{{ amount_groups }}</p>
+      </article>
+      <article class="statistic_block_item item_3">
+        <h4>Lessons</h4>
+        <p>{{ amount_lessons }}</p>
+      </article>
+    </div>
+    <div>
+      {{ plot_div|safe }}
+    </div>
+  </section>
+{% endblock %}

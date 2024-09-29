@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/group/group_detail.css" %}">
+{% endblock %}
+{% block content %}
+  <div class="group_detail_section">
+    <h2>{{ groups.name }} | {{ groups.level }}</h2>
+    <div>
+      <div class="group_detail_teacher">
+        <strong>Teacher information:</strong>
+        <div class="teacher_img"></div>
+        {% for teacher in groups.teacher.all %}
+          <p><strong>First name:</strong> {{ teacher.first_name }}</p>
+          <p><strong>Last name:</strong> {{ teacher.last_name }}</p>
+          <p><strong>Email:</strong> {{ teacher.email }}</p>
+        {% endfor %}
+      </div>
+      <div class="group_detail_students">
+        <h4>All students from this group</h4>
+        <table class="table table-striped table-hover table-bordered">
+          <tr>
+            <th>name</th>
+            <th>surname</th>
+            <th>email</th>
+            <th>group</th>
+            <th>update</th>
+            <th>delete</th>
+          </tr>
+          {% for student in groups.students.all %}
+            <tr>
+              <td>{{ student.name }}</td>
+              <td>{{ student.surname }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.group.name }}</td>
+              <td><a class="btn btn-primary" href="{% url "english:student-update" student.id %}">Update</a></td>
+              <td><a class="btn btn-danger" href="{% url "english:student-delete" student.id %}">Delete</a></td>
+            </tr>
+          {% endfor %}
+          {% include "includes/pagination.html" %}
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

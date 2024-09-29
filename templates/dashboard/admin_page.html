@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f6f6f6; /* Background color */
+        color: #001F24;
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        color: #162F33;
+        text-align: center;
+        margin-top: 50px;
+        font-size: 42px; /* Increased font size */
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .details {
+        padding: 30px; /* Increased padding */
+        border-radius: 8px;
+        background-color: #ffffff; /* Light background for details */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+        width: 500px; /* Width of details container */
+        text-align: center;
+        position: relative; /* Allow for positioning of border */
+    }
+
+    .avatar {
+        width: 80px; /* Size of the avatar */
+        height: 80px; /* Size of the avatar */
+        border-radius: 50%; /* Make it circular */
+        border: 2px solid #162F33; /* Border for the avatar */
+        position: absolute;
+        top: -40px; /* Position it above the details */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Adjust for perfect centering */
+    }
+
+    .detail-item {
+        margin: 15px 0; /* Margin for spacing */
+        font-size: 20px; /* Font size for detail items */
+        color: #001F24; /* Text color */
+    }
+
+    ul {
+        list-style-type: none; /* Remove default list style */
+        padding: 0; /* Remove padding */
+        text-align: left; /* Align text to the left */
+    }
+
+    li {
+        font-size: 18px; /* Font size for list items */
+        color: #001F24; /* List item color */
+    }
+</style>
+
+<div class="container">
+    <div class="details">
+        <h2>{{ teacher.full_name }}</h2>
+        <div class="detail-item">Username: {{ teacher.username }}</div>
+        <div class="detail-item">Email: {{ teacher.email }}</div>
+        <div class="detail-item">Groups:</div>
+        <ul>
+            {% for group in teacher.groups.all %}
+                <li>{{ group.name }} (Level: {{ group.level }})</li>
+            {% empty %}
+                <li>No groups assigned</li>
+            {% endfor %}
+        </ul>
+        <div class="detail-item">Lessons:</div>
+        <ul>
+            {% for lesson in teacher.lessons.all %}
+                <li>{{ lesson.topic }} (Starts: {{ lesson.start_time|date:"Y-m-d H:i" }})</li>
+            {% empty %}
+                <li>No lessons assigned</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

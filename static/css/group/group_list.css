@@ -1,0 +1,18 @@
+.group_list_container{
+    display: flex;
+    width: 100%;
+}
+
+.groups_container{
+    flex-basis: 80%;
+}
+
+.group_create_button{
+    flex-basis: 20%;
+    padding: 1rem;
+}
+
+.group_create_button .btn-primary{
+    width: 300px;
+    padding: 1rem 0;
+}

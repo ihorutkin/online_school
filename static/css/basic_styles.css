@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+p, a{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #162F33;
+}
+
+.create_new_admin{
+    padding: 1rem 1rem;
+    font-size: 16px;
+    line-height: 0;
+    font-weight: 500;
+    border: 2px #F6F6F6 solid;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.logo a{
+    color: #F6F6F6;
+    text-decoration: none;
+}
+
+.logo a span{
+    color: #E9D700;
+}
+
+.header_nav{
+    display: flex;
+    align-items: center;
+}
+
+.header_link{
+    padding: 10px 20px;
+    color: #F6F6F6;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition: all .3s linear;
+    margin-top: auto;
+}
+
+.header_link:hover{
+    color: #E9D700;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    transition: all .3s linear;
+}
+
+.logged_block{
+    display: flex;
+    color: #F6F6F6;
+    font-size: 16px;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logged_block a{
+    text-decoration: none;
+    color: #F6F6F6;
+}
+
+.fa-user{
+    font-size: 24px;
+}
+
+.fa-arrow-right-from-bracket{
+    font-size: 24px;
+}
+
+/* aside */
+
+.dashboard_container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+}
+
+.aside_dashboard{
+    flex-basis: 15%;
+    border-right: 1px #d1d1d1 solid;
+}
+
+.aside_dashboard_nav{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_nav_link{
+    padding: 1rem .5rem;
+    text-decoration: none;
+    color: #001F24;
+    font-weight: 500;
+}
+
+.dashboard_nav_link:hover{
+    background-color: #001F24;
+    color: #F6F6F6;
+}
+
+/* footer */
+
+.footer{
+    text-align: center;
+    padding: 1rem 1rem;
+    background-color: #d1d1d1;
+}
+
+.footer p{
+    color: #001f24;
+}
+
+
+
+
+
+
+
+@media (max-width: 700px){
+    .header{
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 400px){
+    .header_link{
+        padding: 10px 0;
+    }
+    .header_nav{
+        display: flex;
+        gap: 10px;
+    }
+}
